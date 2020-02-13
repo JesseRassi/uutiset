@@ -4,7 +4,7 @@ $otsikko = $_POST["otsikko"];
 $kirjoittaja = $_POST["kirjoittaja"];
 $artikkeli = $_POST["artikkeli"];
 
-// W3Schools
+#region // W3Schools
 $target_dir = "../img/";
 $target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
 $uploadOk = 1;
@@ -46,18 +46,43 @@ if ($uploadOk == 0) {
         echo "Sorry, there was an error uploading your file.";
     }
 }
+#endregion
 
-// https://programmerblog.net/how-to-generate-xml-files-using-php/
-$xml = new DOMDocument("1.0", "utf-8");
-$xml_otsikko = $xml->createElement("Otsikko", $otsikko);
-$xml_kirjoittaja = $xml->createElement("Kirjoittaja", $kirjoittaja);
-$xml_artikkeli = $xml->createElement("Artikkeli", $artikkeli);
-$xml_kuva = $xml->createElement("Kuvapolku", $target_file);
-$xml->appendChild($xml_otsikko);
-$xml->appendChild($xml_kirjoittaja);
-$xml->appendChild($xml_artikkeli);
-$xml->appendChild($xml_kuva);
-$xml->save("../xml/{$id}.xml");
+$uutinen = new DOMDocument("1.0", "utf-8");
+$uutinen->formatOutput = true;
+$uutinen_otsikko = $uutinen->createElement("Otsikko", $otsikko);
+$uutinen_kirjoittaja = $uutinen->createElement("Kirjoittaja", $kirjoittaja);
+$uutinen_artikkeli = $uutinen->createElement("Artikkeli", $artikkeli);
+$uutinen_kuva = $uutinen->createElement("Kuvapolku", $target_file);
+$uutinen->appendChild($uutinen_otsikko);
+$uutinen->appendChild($uutinen_kirjoittaja);
+$uutinen->appendChild($uutinen_artikkeli);
+$uutinen->appendChild($uutinen_kuva);
+$uutinen->save("../xml/{$id}.xml");
+
+$uutisfeed = new DOMDocument("1.0", "utf-8");
+$uutisfeed->load("../xml/uutisfeed.xml");
+$uutiset = $uutisfeed->getElementsByTagName("Uutiset")->item(0);
+$feed_single = $uutisfeed->createElement("Uutinen");
+$single_id = $uutisfeed->createElement("ID", $id);
+$single_otsikko = $uutisfeed->createElement("Otsikko", $otsikko);
+$single_kirjoittaja = $uutisfeed->createElement("Kirjoittaja", $kirjoittaja);
+$single_artikkeli = $uutisfeed->createElement("Ingressi", (substr(get_words($artikkeli), 0, -3) . '...'));
+$single_kuva = $uutisfeed->createElement("Kuvapolku", $target_file);
+$uutisfeed->appendChild($feed_single);
+$feed_single->appendChild($single_id);
+$feed_single->appendChild($single_otsikko);
+$feed_single->appendChild($single_kirjoittaja);
+$feed_single->appendChild($single_artikkeli);
+$feed_single->appendChild($single_kuva);
+$uutiset->appendChild($feed_single);
+$uutisfeed->formatOutput = true;
+$uutisfeed->save("../xml/uutisfeed.xml");
 
 
+// https://stackoverflow.com/questions/5956610/how-to-select-first-10-words-of-a-sentence
+function get_words($sentence, $count = 15) {
+    preg_match("/(?:[^\s,\.;\?\!]+(?:[\s,\.;\?\!]+|$)){0,$count}/", $sentence, $matches);
+    return $matches[0];
+}
 ?>
