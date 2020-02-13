@@ -1,0 +1,33 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Uutiset</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/tyyli.css">
+</head>
+
+<body style="height:100vh">
+
+    <div class="container-fluid h-100">
+        <div class="row h-100">
+            <div class="col mx-auto"></div>
+            <div class="col-md-6 bg-primary h-100">
+                <form action="script/php/lisaa.php" method="POST">
+                    <input type="text" name="otsikko">
+                    <input type="text" name="kirjoittaja">
+                    <textarea name="artikkeli"></textarea>
+                    <input type="submit" name="laheta">
+                </form>
+            </div>
+            <div class="col mx-auto"></div>
+        </div>
+    </div>
+
+    <script src="script/js/jquery-3.4.1.slim.min.js"></script>
+    <script src="script/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
