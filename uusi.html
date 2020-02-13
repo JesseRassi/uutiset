@@ -15,10 +15,11 @@
         <div class="row h-100">
             <div class="col mx-auto"></div>
             <div class="col-md-6 bg-primary h-100">
-                <form action="script/php/lisaa.php" method="POST">
+                <form action="php/lisaa.php" method="POST" enctype="multipart/form-data">
                     <input type="text" name="otsikko">
                     <input type="text" name="kirjoittaja">
                     <textarea name="artikkeli"></textarea>
+                    <input type="file" name="fileToUpload" id="fileToUpload">
                     <input type="submit" name="laheta">
                 </form>
             </div>
@@ -26,8 +27,8 @@
         </div>
     </div>
 
-    <script src="script/js/jquery-3.4.1.slim.min.js"></script>
-    <script src="script/js/bootstrap.bundle.min.js"></script>
+    <script src="js/jquery-3.4.1.slim.min.js"></script>
+    <script src="js/bootstrap.bundle.min.js"></script>
 </body>
 
 </html>
