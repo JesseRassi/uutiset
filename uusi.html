@@ -16,11 +16,30 @@
             <div class="col mx-auto"></div>
             <div class="col-md-6 bg-primary h-100">
                 <form action="php/lisaa.php" method="POST" enctype="multipart/form-data">
+                    <br>Otsikko:<br>
                     <input type="text" name="otsikko">
+                    <br>Kirjoittaja:<br>
                     <input type="text" name="kirjoittaja">
+                    <br>Artikkeli:<br>
                     <textarea name="artikkeli"></textarea>
+                    <br>Valitse aiheet:<br>
+                    <ul>
+                        <li><input type="checkbox" name="uutiset"> Uutiset</li>
+                        <li><input type="checkbox" name="kotimaa"> Kotimaa</li>
+                        <li><input type="checkbox" name="ulkomaat"> Ulkomaat</li>
+                        <li><input type="checkbox" name="politiikka"> Politiikka</li>
+                        <li><input type="checkbox" name="talous"> Talous</li>
+                        <li><input type="checkbox" name="urheilu"> Urheilu</li>
+                        <li><input type="checkbox" name="viihde"> Viihde</li>
+                        <li><input type="checkbox" name="terveys"> Terveys</li>
+                    </ul>
+                    <br>Avainsanat(5):<br>
+                    <input type="text" id="avainsanat" name="avainsanat" onkeydown="wordLimit()">
+                    <br>Kuvateksti:<br>
+                    <input type="text" name="kuvateksti">
+                    <br>Lisää kuva:<br>
                     <input type="file" name="fileToUpload" id="fileToUpload">
-                    <input type="submit" name="laheta">
+                    <br><br><input type="submit" name="laheta" value="Lähetä">
                 </form>
             </div>
             <div class="col mx-auto"></div>
@@ -29,6 +48,18 @@
 
     <script src="js/jquery-3.4.1.slim.min.js"></script>
     <script src="js/bootstrap.bundle.min.js"></script>
+    <script type="text/javascript">
+        // https://stackoverflow.com/questions/47144715/set-maximum-number-of-words-html-textbox
+        function wordLimit() {
+            var jobValue = document.getElementById('avainsanat').value;
+            var words = jobValue.split(/\s+/);
+            var maxWords = 5;
+            var numWords = words.length;
+            if (numWords > maxWords) {
+                jobValue.preventDefault();
+            }
+        }
+    </script>
 </body>
 
 </html>
