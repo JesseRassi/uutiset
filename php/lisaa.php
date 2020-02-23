@@ -60,6 +60,7 @@ $uutinen->appendChild($uutinen_artikkeli);
 $uutinen->appendChild($uutinen_kuva);
 $uutinen->save("../xml/{$id}.xml");
 
+/* 
 $uutisfeed = new DOMDocument("1.0", "utf-8");
 $uutisfeed->load("../xml/uutisfeed.xml");
 $uutiset = $uutisfeed->getElementsByTagName("Uutiset")->item(0);
@@ -78,7 +79,7 @@ $feed_single->appendChild($single_kuva);
 $uutiset->appendChild($feed_single);
 $uutisfeed->formatOutput = true;
 $uutisfeed->save("../xml/uutisfeed.xml");
-
+ */
 
 // https://stackoverflow.com/questions/5956610/how-to-select-first-10-words-of-a-sentence
 function get_words($sentence, $count = 15) {
