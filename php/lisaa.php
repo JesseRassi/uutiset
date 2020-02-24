@@ -1,5 +1,11 @@
 <?php
-$id = 4;
+$servername = "localhost";
+$username = "root";
+$password = "";
+$dbname = "uutiset";
+$conn = new mysqli($servername, $username, $password, $dbname);
+
+$id =;
 $otsikko = $_POST["otsikko"];
 $kirjoittaja = $_POST["kirjoittaja"];
 $artikkeli = $_POST["artikkeli"];
@@ -64,6 +70,13 @@ $uutinen->appendChild($uutinen_kuvateksti);
 $uutinen->save("../xml/{$id}.xml");
 
 /* 
+$sql = "INSERT INTO uutiset (id, 'xml', pvm, aiheet, avainsana0, avainsana1, avainsana2, avainsana3, avainsana4) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
+$stmt = mysqli_prepare($yhteys, $sql);
+mysqli_stmt_bind_param($stmt, 'iidsssss', );
+mysqli_stmt_execute($stmt);
+mysqli_stmt_close($stmt);
+mysqli_close($yhteys);
+
 $uutisfeed = new DOMDocument("1.0", "utf-8");
 $uutisfeed->load("../xml/uutisfeed.xml");
 $uutiset = $uutisfeed->getElementsByTagName("Uutiset")->item(0);
