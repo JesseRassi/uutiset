@@ -3,6 +3,7 @@ $id = 4;
 $otsikko = $_POST["otsikko"];
 $kirjoittaja = $_POST["kirjoittaja"];
 $artikkeli = $_POST["artikkeli"];
+$kuvateksti = $_POST["kuvateksti"];
 
 #region // W3Schools
 $target_dir = "../img/";
@@ -54,6 +55,7 @@ $uutinen_otsikko = $uutinen->createElement("Otsikko", $otsikko);
 $uutinen_kirjoittaja = $uutinen->createElement("Kirjoittaja", $kirjoittaja);
 $uutinen_artikkeli = $uutinen->createElement("Artikkeli", $artikkeli);
 $uutinen_kuva = $uutinen->createElement("Kuvapolku", $target_file);
+$uutinen_kuvateksti = $uutinen->createElement("Kuvateksti", $kuvateksti);
 $uutinen->appendChild($uutinen_otsikko);
 $uutinen->appendChild($uutinen_kirjoittaja);
 $uutinen->appendChild($uutinen_artikkeli);
