@@ -33,7 +33,7 @@
                         <li><input type="checkbox" name="viihde"> Viihde</li>
                         <li><input type="checkbox" name="terveys"> Terveys</li>
                     </ul>
-                    <br>Avainsanat(5):<br>
+                    Avainsanat (5):<br>
                     <input type="text" id="avainsanat" name="avainsanat" onkeydown="wordLimit()">
                     <br>Kuvateksti:<br>
                     <input type="text" name="kuvateksti">
@@ -48,18 +48,6 @@
 
     <script src="js/jquery-3.4.1.slim.min.js"></script>
     <script src="js/bootstrap.bundle.min.js"></script>
-    <script type="text/javascript">
-        // https://stackoverflow.com/questions/47144715/set-maximum-number-of-words-html-textbox
-        function wordLimit() {
-            var jobValue = document.getElementById('avainsanat').value;
-            var words = jobValue.split(/\s+/);
-            var maxWords = 5;
-            var numWords = words.length;
-            if (numWords > maxWords) {
-                jobValue.preventDefault();
-            }
-        }
-    </script>
 </body>
 
 </html>
