@@ -60,6 +60,7 @@ $uutinen->appendChild($uutinen_otsikko);
 $uutinen->appendChild($uutinen_kirjoittaja);
 $uutinen->appendChild($uutinen_artikkeli);
 $uutinen->appendChild($uutinen_kuva);
+$uutinen->appendChild($uutinen_kuvateksti);
 $uutinen->save("../xml/{$id}.xml");
 
 /* 
