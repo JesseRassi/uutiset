@@ -2,15 +2,31 @@
 $servername = "localhost";
 $username = "root";
 $password = "";
-$dbname = "uutiset";
-$conn = new mysqli($servername, $username, $password, $dbname);
+$dbname = "jobbaripojat";
+$yhteys = new mysqli($servername, $username, $password, $dbname);
 
-$id =;
+$id = haeID($yhteys) + 1;
 $otsikko = $_POST["otsikko"];
 $kirjoittaja = $_POST["kirjoittaja"];
 $artikkeli = $_POST["artikkeli"];
+$avainsanat = $_POST["avainsanat"];
 $kuvateksti = $_POST["kuvateksti"];
+$pvm = date("Y-m-d H:i:s");
+$check_uutiset = (int)isset($_POST["uutiset"]);
+$check_kotimaa = (int)isset($_POST["kotimaa"]);
+$check_ulkomaat = (int)isset($_POST["ulkomaat"]);
+$check_politiikka = (int)isset($_POST["politiikka"]);
+$check_talous = (int)isset($_POST["talous"]);
+$check_urheilu = (int)isset($_POST["urheilu"]);
+$check_viihde = (int)isset($_POST["viihde"]);
+$check_terveys = (int)isset($_POST["terveys"]);
 
+$sql = "INSERT INTO uutiset (id, xml, pvm, avainsana0, avainsana1, avainsana2, avainsana3, avainsana4, uutiset, kotimaa, ulkomaat, politiikka, talous, urheilu, viihde, terveys) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+$stmt = mysqli_prepare($yhteys, $sql);
+mysqli_stmt_bind_param($stmt, "iissssssiiiiiiii", $id, $id, $pvm, $avainsanat, $avainsanat, $avainsanat, $avainsanat, $avainsanat, $check_uutiset, $check_kotimaa, $check_ulkomaat, $check_politiikka, $check_talous, $check_urheilu, $check_viihde, $check_terveys);
+mysqli_stmt_execute($stmt);
+mysqli_stmt_close($stmt);
+mysqli_close($yhteys);
 #region // W3Schools
 $target_dir = "../img/";
 $target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
@@ -101,5 +117,14 @@ $uutisfeed->save("../xml/uutisfeed.xml");
 function get_words($sentence, $count = 15) {
     preg_match("/(?:[^\s,\.;\?\!]+(?:[\s,\.;\?\!]+|$)){0,$count}/", $sentence, $matches);
     return $matches[0];
+}
+
+function haeID($yhteys){
+    $sql = "SELECT MAX(id) FROM uutiset LIMIT 1";
+    $stmt = mysqli_prepare($yhteys, $sql);
+    mysqli_stmt_execute($stmt);
+    $id = mysqli_fetch_object(mysqli_stmt_get_result($stmt));
+    mysqli_stmt_close($stmt);
+    return reset($id);
 }
 ?>
