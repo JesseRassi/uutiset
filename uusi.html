@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Uutiset</title>
+    <title>Lisää Artikkeli</title>
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/tyyli.css">
 </head>
@@ -16,6 +16,7 @@
             <div class="col mx-auto"></div>
             <div class="col-md-6 bg-primary h-100">
                 <form action="php/lisaa.php" method="POST" enctype="multipart/form-data">
+                    <input type="number" name="id" readonly style="display: none">
                     <br>Otsikko:<br>
                     <input type="text" name="otsikko">
                     <br>Kirjoittaja:<br>
@@ -39,6 +40,7 @@
                     <input type="text" name="kuvateksti">
                     <br>Lisää kuva:<br>
                     <input type="file" name="fileToUpload" id="fileToUpload">
+                    <input type="text" name="kuvapolku" readonly style="display: none">
                     <br><br>
                     <input type="submit" name="laheta" value="Lähetä">
                 </form>
