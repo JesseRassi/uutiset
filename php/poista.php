@@ -22,3 +22,15 @@ mysqli_stmt_execute($stmt);
 mysqli_stmt_close($stmt);
 mysqli_close($yhteys);
 ?>
+
+<?php
+// xml tiedoston poisto   
+$file_pointer = "2.xml";   
+if (!unlink($file_pointer)) {  
+    echo ("$file_pointer error");  
+}  
+else {  
+    echo ("$file_pointer on poistettu");  
+}  
+  
+?> 
