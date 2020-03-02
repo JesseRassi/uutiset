@@ -19,7 +19,7 @@ if ($yhteys->connect_error) {
 $id = $_POST['id'];
             
             $sql = "DELETE FROM uutiset WHERE id = $id" ;
-            mysql_select_db('test_db');
+            mysql_select_db('jobbaripojat');
             $retval = mysql_query( $sql, $yhtyes );
             
             if(! $retval ) {
