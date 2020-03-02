@@ -5,7 +5,7 @@ $password = "";
 $dbname = "jobbaripojat";
 $yhteys = new mysqli($servername, $username, $password, $dbname);
 
-$id = 7;
+$id = 2;
 
 $sql = "SELECT * FROM uutiset WHERE id = ?";
 $stmt = mysqli_prepare($yhteys, $sql);
@@ -44,7 +44,7 @@ $xml = simplexml_load_file($file);
         <div class="row h-100">
             <div class="col mx-auto"></div>
             <div class="col-md-6 bg-primary h-100">
-                <form action="lisaa.php?e=true" method="POST" enctype="multipart/form-data">
+                <form action="lisaa.php?e=1" method="POST" enctype="multipart/form-data">
                     <input type="number" name="id" value="<?php echo $xml->id;?>" readonly style="display: none">
                     <br>Otsikko:<br>
                     <input type="text" name="otsikko" value="<?php echo $xml->otsikko;?>">

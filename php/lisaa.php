@@ -5,7 +5,8 @@ $password = "";
 $dbname = "jobbaripojat";
 $yhteys = new mysqli($servername, $username, $password, $dbname);
 
-$muokkaus = $_GET["e"];
+$muokkaus = (bool)$_GET["e"];
+echo var_dump($muokkaus);
 $otsikko = $_POST["otsikko"];
 $kirjoittaja = $_POST["kirjoittaja"];
 $artikkeli = $_POST["artikkeli"];
