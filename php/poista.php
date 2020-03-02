@@ -8,14 +8,14 @@ $username = "root";
 $password = "";
 $dbname = "jobbaripojat";
 
-// Create connection
+// tarkista yhteys
 $yhteys = new mysqli($servername, $username, $password, $dbname);
-// Check connection
+// tarkista yhteys
 if ($yhteys->connect_error) {
     die("Connection failed: " . $yhtyes->connect_error);
 } 
 
-// sql to delete a record
+// sql tiedoston poisto
 $id = $_POST['id'];
             
             $sql = "DELETE FROM uutiset WHERE id = $id" ;
