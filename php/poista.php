@@ -1,6 +1,3 @@
-<?php
-include ("header");
-?>
 
 <?php
 $servername = "localhost";
@@ -16,15 +13,12 @@ if ($yhteys->connect_error) {
 } 
 
 // sql tiedoston poisto
-$id = $_POST['id'];
+$id = 7;
+$sql = "DELETE FROM uutiset WHERE id = ?" ;
             
-            $sql = "DELETE FROM uutiset WHERE id = $id" ;
-            mysql_select_db('jobbaripojat');
-            $retval = mysql_query( $sql, $yhtyes );
-            
-            if(! $retval ) {
-               die('Could not delete data: ' . mysql_error());
-            }
-
-$yhteys->close();
+$stmt = mysqli_prepare($yhteys, $sql);
+mysqli_stmt_bind_param($stmt, "i", $id);
+mysqli_stmt_execute($stmt);
+mysqli_stmt_close($stmt);
+mysqli_close($yhteys);
 ?>
