@@ -1,6 +1,6 @@
 <?php
 $id = $_GET["id"];
-$file = "xml/{$id}.xml";
+$file = "../xml/{$id}.xml";
 $xml = simplexml_load_file($file);
 
 echo var_dump($id);
