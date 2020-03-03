@@ -3,8 +3,6 @@ $id = $_GET["id"];
 $file = "../xml/{$id}.xml";
 $xml = simplexml_load_file($file);
 
-echo var_dump($id);
-
 
 ?>
 <html>   
@@ -44,7 +42,7 @@ p{
     <div class="container-fluid col-md-offset-3">
     <h1><?php echo $xml->otsikko;?></h1>   
     <figure class="figure">
-    <img id="img" src="<?php echo $xml->kuvapolku;?>">
+    <img id="img" src="../<?php echo $xml->kuvapolku;?>" height="300px" width="450px">
     <figcaption class="figure-caption" id="demo1"></figcaption>
     </figure>
     <p><?php echo $xml->kirjoittaja;?></p>

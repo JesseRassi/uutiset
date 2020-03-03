@@ -3,7 +3,7 @@
   <id>2</id>
   <otsikko>jessen kone ei toimi</otsikko>
   <kirjoittaja>jesse</kirjoittaja>
-  <artikkeli>aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</artikkeli>
+  <artikkeli>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam mauris sapien, efficitur ut vestibulum in, vestibulum vel tortor. Etiam ut pulvinar erat, nec vulputate tellus. In pulvinar blandit erat at mollis. Donec elementum vestibulum tellus a vulputate. Suspendisse a tortor sapien. Nunc vel ante id nulla varius ullamcorper. Nullam vel enim ex. Duis consequat nisi velit, vel consectetur magna condimentum a. Curabitur facilisis ante ac libero viverra fermentum. Mauris tellus arcu, facilisis nec placerat eu, rhoncus ut tortor. Donec feugiat sollicitudin erat in mollis. </artikkeli>
   <kuvateksti>hahahahahahahahahahahahahahahahahahahahaha</kuvateksti>
-  <kuvapolku>../img/lolskjfld.jpg</kuvapolku>
+  <kuvapolku>img/lolskjfld.jpg</kuvapolku>
 </uutinen>
