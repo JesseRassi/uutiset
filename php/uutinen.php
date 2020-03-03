@@ -6,7 +6,7 @@ $xml = simplexml_load_file($file);
 <html>   
 
 <head>
-<link rel="stylesheet" href="css/bootstrap.min.css">
+<link rel="stylesheet" href="../css/bootstrap.min.css">
 
 <style>
 
@@ -44,7 +44,7 @@ p{
             <figcaption class="figure-caption" id="demo1"></figcaption>
         </figure>
         <p><?php echo $xml->kirjoittaja;?></p>
-        <p><?php echo $xml->artikkeli;?></p>
+        <p><?php echo nl2br($xml->artikkeli);?></p>
         <p><?php echo $xml->kuvateksti;?></p>
     </div>
 </div>
