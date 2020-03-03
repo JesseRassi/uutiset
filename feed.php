@@ -1,4 +1,14 @@
 <?php
+// You'd put this code at the top of any "protected" page you create
+
+// Always start this first
+session_start();
+
+if ( isset( $_SESSION['user_id'] ) ) {
+    // Grab user data from the database using the user_id
+    // Let them access the "logged in only" pages
+}
+
 $servername = "localhost";
 $username = "root";
 $password = "";
@@ -25,14 +35,19 @@ function uutiset($yhteys, $tyyppi){
     for ($set = array (); $row = $result->fetch_assoc(); $set[] = $row);
     $i = (int)0;
     while ($i < count($set)) {
+        //onclick="location.href=' . "'php/uutinen.php?id=" . hae_uutinen($id)->id . "'" . '"
         $id = $set[$i]["id"];
         echo 
-        '<div class="media" id="' . hae_uutinen($id)->id . '" onclick="location.href=' . "'php/uutinen.php?id=" . hae_uutinen($id)->id . "'" . '">
+        '<div class="media" id="' . hae_uutinen($id)->id . '" >
         <img class="mr-3" src="' . hae_uutinen($id)->kuvapolku . '" height="300px" width="450px">
         <div class="media-body">
             <span>Posted at ' . $set[$i]['pvm'] . '</span>
             <h5 class="mt-0">' . hae_uutinen($id)->otsikko . '</h5>
             <p>' . substr(get_words(hae_uutinen($id)->artikkeli), 0, -2) . '..</p>
+
+            <button type="button" onclick="location.href=' . "'php/poista.php?uid=" . hae_uutinen($id)->id . "'" . '" style="z-index:999">Poista</button>
+            <button type="button" onclick="location.href=' . "'php/muokkaa.php?uid=" . hae_uutinen($id)->id . "'" . '" style="z-index:999">Muokkaa</button>
+
         </div>
         </div>
         <div class="row mt-3">
@@ -107,6 +122,7 @@ function uutiset($yhteys, $tyyppi){
                             <input type="submit" value="Haku">
                             </form>         
                         </div>
+                        <a href="php/yllapito.php"><button type="button">Kirjaudu</button> </a>
                     </ul>
                 </nav>
             </div>

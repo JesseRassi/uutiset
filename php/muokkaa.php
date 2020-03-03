@@ -5,7 +5,7 @@ $password = "";
 $dbname = "jobbaripojat";
 $yhteys = new mysqli($servername, $username, $password, $dbname);
 
-$id = 2;
+$id = $_GET['uid'];
 
 $sql = "SELECT * FROM uutiset WHERE id = ?";
 $stmt = mysqli_prepare($yhteys, $sql);

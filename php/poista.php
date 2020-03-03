@@ -13,7 +13,7 @@ if ($yhteys->connect_error) {
 } 
 
 // sql tiedoston poisto
-$id = 7;
+$id = $_GET['uid'];
 $sql = "DELETE FROM uutiset WHERE id = ?" ;
             
 $stmt = mysqli_prepare($yhteys, $sql);
@@ -25,7 +25,7 @@ mysqli_close($yhteys);
 
 <?php
 // xml tiedoston poisto   
-$file_pointer = "2.xml";   
+$file_pointer = "../xml/{$id}.xml";   
 if (!unlink($file_pointer)) {  
     echo ("$file_pointer error");  
 }  

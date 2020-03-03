@@ -30,6 +30,7 @@ function uutiset($yhteys, $hakusana){
             <span>Posted at ' . $set[$i]['pvm'] . '</span>
             <h5 class="mt-0">' . hae_uutinen($id)->otsikko . '</h5>
             <p>' . substr(get_words(hae_uutinen($id)->artikkeli), 0, -2) . '..</p>
+            
         </div>
         </div>
         <div class="row mt-3">
