@@ -17,7 +17,7 @@ function get_words($sentence, $count = 15) {
 }
 
 function uutiset($yhteys, $hakusana){
-    $sql = "SELECT id, pvm FROM uutiset WHERE avainsana2 = '{$hakusana}' ORDER BY pvm DESC";
+    $sql = "SELECT id, pvm FROM uutiset WHERE '{$hakusana}' IN(avainsana0, avainsana1, avainsana2, avainsana3, avainsana4) ORDER BY pvm DESC";
     $result = $yhteys->query($sql);
     for ($set = array (); $row = $result->fetch_assoc(); $set[] = $row);
     $i = (int)0;
