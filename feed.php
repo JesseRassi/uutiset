@@ -87,7 +87,7 @@ function uutiset($yhteys, $tyyppi){
 
                                 <form action="haku.php" method="POST">
                                     <input type="text" name="hakusana">
-                                    <input type="submit">
+                                    <input type="submit" value="haku">
                                 </form>         
                             </div>
 
