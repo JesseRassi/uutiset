@@ -2,13 +2,11 @@
 $id = $_GET["id"];
 $file = "../xml/{$id}.xml";
 $xml = simplexml_load_file($file);
-
-
 ?>
 <html>   
 
 <head>
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" crossorigin="anonymous">
+<link rel="stylesheet" href="css/bootstrap.min.css">
 
 <style>
 
@@ -40,18 +38,19 @@ p{
 
 <div class="jumbotron d-flex align-items-center">
     <div class="container-fluid col-md-offset-3">
-    <h1><?php echo $xml->otsikko;?></h1>   
-    <figure class="figure">
-    <img id="img" src="../<?php echo $xml->kuvapolku;?>" height="300px" width="450px">
-    <figcaption class="figure-caption" id="demo1"></figcaption>
-    </figure>
-    <p><?php echo $xml->kirjoittaja;?></p>
-    <p><?php echo $xml->artikkeli;?></p>
-    <p><?php echo $xml->kuvateksti;?></p>
+        <h1><?php echo $xml->otsikko;?></h1>   
+        <figure class="figure">
+            <img id="img" src="../<?php echo $xml->kuvapolku;?>" height="300px" width="450px">
+            <figcaption class="figure-caption" id="demo1"></figcaption>
+        </figure>
+        <p><?php echo $xml->kirjoittaja;?></p>
+        <p><?php echo $xml->artikkeli;?></p>
+        <p><?php echo $xml->kuvateksti;?></p>
     </div>
-    </div>
+</div>
 
-<!--     <script>
+<!--     
+    <script>
         var xhttp = new XMLHttpRequest();
         xhttp.onreadystatechange = function() {
             if (this.readyState == 4 && this.status == 200) {
@@ -84,5 +83,7 @@ p{
         </script>
      -->
 
+    <script src="js/jquery-3.4.1.slim.min.js"></script>
+    <script src="js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
