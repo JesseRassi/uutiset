@@ -66,31 +66,46 @@ function uutiset($yhteys, $tyyppi){
                     <!-- Links -->
                     <ul class="navbar-nav">
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Koti</a>
+                            <a class="nav-link" href="feed.php">Koti</a>
+
                         </li>
-                        <div class="dropdown">
-                            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                Aiheet
-                            </button>
-                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                <a class="dropdown-item" href="#">Politiikka</a>
-                                <a class="dropdown-item" href="#">Urheilu</a>
-                                <a class="dropdown-item" href="#">Kotimaa</a>
-                                <a class="dropdown-item" href="#">Ulkomaa</a>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#kotimaa">Kotimaa</a>
+                            
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#ulkomaat">Ulkomaat</a>
+                            
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#politiikka">Politiikka</a>
+                            
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#talous">Talous</a>
+                            
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#urheilu">Urheilu</a>
+                            
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#viihde">Viihde</a>
+                            
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#terveys">Terveys</a>
+                            
+                        </li>
 
-                            </div>
-                            <div class="row mt-3">
 
-                            </div>
+                        
 
-                            <div class="md-form mt-0">
-
-                                <form action="haku.php" method="POST">
-                                    <input type="text" name="hakusana">
-                                    <input type="submit" value="haku">
-                                </form>         
-                            </div>
-
+                        <div class="md-form mt-0">
+                            <form action="haku.php" method="POST">
+                            <input type="text" name="hakusana">
+                            <input type="submit" value="Haku">
+                            </form>         
                         </div>
                     </ul>
                 </nav>
@@ -99,21 +114,21 @@ function uutiset($yhteys, $tyyppi){
 
                 <h1>UUSIMMAT</h1>
                 <?php uutiset($yhteys, "kaikki");?>
-                <h1>UUTISET</h1>
+                <h1 id="uutiset">UUTISET</h1>
                 <?php uutiset($yhteys, "uutiset");?>
-                <h1>KOTIMAA</h1>
+                <h1 id="kotimaa">KOTIMAA</h1>
                 <?php uutiset($yhteys, "kotimaa");?>
-                <h1>ULKOMAAT</h1>
+                <h1 id="ulkomaat">ULKOMAAT</h1>
                 <?php uutiset($yhteys, "ulkomaat");?>
-                <h1>POLITIIKKA</h1>
+                <h1 id="politiikka">POLITIIKKA</h1>
                 <?php uutiset($yhteys, "politiikka");?>
-                <h1>TALOUS</h1>
+                <h1 id="talous">TALOUS</h1>
                 <?php uutiset($yhteys, "talous");?>
-                <h1>URHEILU</h1>
+                <h1 id="urheilu">URHEILU</h1>
                 <?php uutiset($yhteys, "urheilu");?>
-                <h1>VIIHDE</h1>
+                <h1 id="viihde">VIIHDE</h1>
                 <?php uutiset($yhteys, "viihde");?>
-                <h1>TERVEYS</h1>
+                <h1 id="terveys">TERVEYS</h1>
                 <?php uutiset($yhteys, "terveys");?>
 
                 <!-- <div class="media" id="<?php //echo hae_uutinen(2)->id;?>" onclick="location.href='php/uutinen.php?id=' + this.id">

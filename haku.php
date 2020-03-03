@@ -63,30 +63,46 @@ function uutiset($yhteys, $hakusana){
                     <!-- Links -->
                     <ul class="navbar-nav">
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Koti</a>
+                            <a class="nav-link" href="feed.php">Koti</a>
+
                         </li>
-                        <div class="dropdown">
-                            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                Aiheet
-                            </button>
-                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                <a class="dropdown-item" href="#">Politiikka</a>
-                                <a class="dropdown-item" href="#">Urheilu</a>
-                                <a class="dropdown-item" href="#">Kotimaa</a>
-                                <a class="dropdown-item" href="#">Ulkomaa</a>
+                        <li class="nav-item">
+                            <a class="nav-link" href="feed.php#kotimaa">Kotimaa</a>
+                            
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="feed.php#ulkomaat">Ulkomaat</a>
+                            
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="feed.php#politiikka">Politiikka</a>
+                            
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="feed.php#talous">Talous</a>
+                            
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="feed.php#urheilu">Urheilu</a>
+                            
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="feed.php#viihde">Viihde</a>
+                            
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="feed.php#terveys">Terveys</a>
+                            
+                        </li>
 
-                            </div>
-                            <div class="row mt-3">
 
-                            </div>
+                        
 
-                            <div class="md-form mt-0">
-
-                                <input type="text" name="hakusana">
-                                <input type="submit" value="haku">
-
-                            </div>
-
+                        <div class="md-form mt-0">
+                            <form action="haku.php" method="POST">
+                            <input type="text" name="hakusana">
+                            <input type="submit" value="Haku">
+                            </form>         
                         </div>
                     </ul>
                 </nav>
