@@ -4,7 +4,7 @@ $username = "root";
 $password = "";
 $dbname = "jobbaripojat";
 $yhteys = new mysqli($servername, $username, $password, $dbname);
-$hakusana- = $_POST["hakusana"];
+$hakusana = $_POST["hakusana"];
 
 function hae_uutinen($id){
     $file = "xml/{$id}.xml";
@@ -17,9 +17,7 @@ function get_words($sentence, $count = 15) {
 }
 
 function uutiset($yhteys, $hakusana){
-
-    $sql = "SELECT id, pvm FROM uutiset WHERE avainsana0, avainsana1, avainsana2, avainsana3, avainsana4 = {$hakusana} ORDER BY pvm DESC ";
-    
+    $sql = "SELECT id, pvm FROM uutiset WHERE avainsana2 = '{$hakusana}' ORDER BY pvm DESC";
     $result = $yhteys->query($sql);
     for ($set = array (); $row = $result->fetch_assoc(); $set[] = $row);
     $i = (int)0;

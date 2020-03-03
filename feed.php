@@ -85,7 +85,7 @@ function uutiset($yhteys, $tyyppi){
 
                             <div class="md-form mt-0">
 
-                                <form action="php/haku.php" method="POST">
+                                <form action="haku.php" method="POST">
                                     <input type="text" name="hakusana">
                                     <input type="submit">
                                 </form>         
