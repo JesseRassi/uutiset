@@ -4,7 +4,7 @@ $username = "root";
 $password = "";
 $dbname = "jobbaripojat";
 $yhteys = new mysqli($servername, $username, $password, $dbname);
-$hakusana- = $_GET["hakusana"];
+$hakusana- = $_POST["hakusana"];
 
 function hae_uutinen($id){
     $file = "xml/{$id}.xml";
@@ -18,7 +18,7 @@ function get_words($sentence, $count = 15) {
 
 function uutiset($yhteys, $hakusana){
 
-    $sql = "SELECT id, pvm FROM uutiset WHERE avainsana0, avainsana1, avainsana2, avainsana3, avainsana4 = {$hakusana} ORDER BY pvm DESC LIMIT 5";
+    $sql = "SELECT id, pvm FROM uutiset WHERE avainsana0, avainsana1, avainsana2, avainsana3, avainsana4 = {$hakusana} ORDER BY pvm DESC ";
     
     $result = $yhteys->query($sql);
     for ($set = array (); $row = $result->fetch_assoc(); $set[] = $row);
@@ -94,7 +94,9 @@ function uutiset($yhteys, $hakusana){
             </div>
             <div class="col-md-6 h-100">
 
-
+            <?php
+            uutiset($yhteys, $hakusana);
+            ?>
 
                 <!-- <div class="media" id="<?php //echo hae_uutinen(2)->id;?>" onclick="location.href='php/uutinen.php?id=' + this.id">
                     <img class="mr-3" src="<?php //echo hae_uutinen(2)->kuvapolku?>" height="300px" width="450px">
