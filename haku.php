@@ -81,10 +81,10 @@ function uutiset($yhteys, $hakusana){
                             </div>
 
                             <div class="md-form mt-0">
-
+                            <form action="haku.php" method="POST">
                                 <input type="text" name="hakusana">
                                 <input type="submit" value="haku">
-
+                            </form>
                             </div>
 
                         </div>
