@@ -1,10 +1,5 @@
 <?php
-// You'd put this code at the top of any "protected" page you create
-
-// Always start this first
 session_start();
-
-
 
 $servername = "localhost";
 $username = "root";
@@ -32,32 +27,28 @@ function uutiset($yhteys, $tyyppi){
     for ($set = array (); $row = $result->fetch_assoc(); $set[] = $row);
     $i = (int)0;
     while ($i < count($set)) {
-        //onclick="location.href=' . "'php/uutinen.php?id=" . hae_uutinen($id)->id . "'" . '"
+        //
         $id = $set[$i]["id"];
         echo 
-        '<div class="media" id="' . hae_uutinen($id)->id . '" >
-        <img class="mr-3" src="' . hae_uutinen($id)->kuvapolku . '" height="300px" width="450px">
-        <div class="media-body">
-            <span>Posted at ' . $set[$i]['pvm'] . '</span>
-            <h5 class="mt-0">' . hae_uutinen($id)->otsikko . '</h5>
-            <p>' . substr(get_words(hae_uutinen($id)->artikkeli), 0, -2) . '..</p>';
-            if ( isset( $_SESSION['user_id'] ) ) {
-                // Grab user data from the database using the user_id
-                // Let them access the "logged in only" pages
-                echo
-                    '<button type="button" onclick="location.href=' . "'php/poista.php?uid=" . hae_uutinen($id)->id . "'" . '" style="z-index:999">Poista</button>
-                    <button type="button" onclick="location.href=' . "'php/muokkaa.php?uid=" . hae_uutinen($id)->id . "'" . '" style="z-index:999">Muokkaa</button>';
-            }
-        echo
-            '</div>
+        '<div class="card mb-3" onclick="location.href=' . "'php/uutinen.php?id=" . hae_uutinen($id)->id . "'" . '">
+            <div class="row no-gutters">
+                <div class="col-md-4">
+                    <img src="' . substr(hae_uutinen($id)->kuvapolku, 3) . '" class="card-img" alt="' . hae_uutinen($id)->otsikko . '">
+                </div>
+                <div class="col-md-8">
+                    <div class="card-body">
+                        <h5 class="card-title">' . hae_uutinen($id)->otsikko . '</h5>
+                        <p class="card-text">' . substr(get_words(hae_uutinen($id)->artikkeli), 0, -2) . '..</p>
+                        <p class="card-text"><small class="text-muted">' . date("M jS, Y", strtotime($set[$i]['pvm'])) . '</small></p>
+                    </div>
+                </div>
             </div>
-            <div class="row mt-3">
-            </div>';
+        </div>';
         $i++;
     }
 }
 ?>
-<html lang="en">
+<html lang="en" style="overflow-y: scroll;">
 
 <head>
     <meta charset="UTF-8">
@@ -68,117 +59,98 @@ function uutiset($yhteys, $tyyppi){
     <link rel="stylesheet" href="css/tyyli.css">
 </head>
 
-<body style="height:100vh">
+<body>
 
-    <div class="container-fluid h-100">
+<div class="container-fluid">
 
-        <div class="row h-100">
+<div class="row">
 
-            <div class="col mx-auto">
-                <!-- A vertical navbar -->
-                <nav class="navbar bg-light float-right">
+    <div class="col mx-auto">
 
-                    <!-- Links -->
-                    <ul class="navbar-nav">
-                        <li class="nav-item">
-                            <a class="nav-link" href="feed.php">Koti</a>
+        <nav class="navbar bg-light float-right">
 
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#kotimaa">Kotimaa</a>
-                            
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#ulkomaat">Ulkomaat</a>
-                            
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#politiikka">Politiikka</a>
-                            
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#talous">Talous</a>
-                            
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#urheilu">Urheilu</a>
-                            
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#viihde">Viihde</a>
-                            
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#terveys">Terveys</a>
-                            
-                        </li>
+            <ul class="navbar-nav">
 
+                <li class="nav-item">
+                    <a class="nav-link mt-1 btn btn-primary" href="feed.php">Koti</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link mt-1 btn btn-primary" href="feed.php#kotimaa">Kotimaa</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link mt-1 btn btn-primary" href="feed.php#ulkomaat">Ulkomaat</a>                            
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link mt-1 btn btn-primary" href="feed.php#politiikka">Politiikka</a>                            
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link mt-1 btn btn-primary" href="feed.php#talous">Talous</a>                            
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link mt-1 btn btn-primary" href="feed.php#urheilu">Urheilu</a>                            
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link mt-1 btn btn-primary" href="feed.php#viihde">Viihde</a>                            
+                </li>
+                <li class="nav-item mb-3">
+                    <a class="nav-link mt-1 btn btn-primary" href="feed.php#terveys">Terveys</a>                            
+                </li>                  
 
-                        
-
-                        <div class="md-form mt-0">
-                            <form action="haku.php" method="POST">
-                            <input type="text" name="hakusana">
-                            <input type="submit" value="Haku">
-                            </form>         
-                        </div>
-                        <?php 
-                        if ( isset( $_SESSION['user_id'] ) ) {
-                            echo '<a href="php/logout.php"><button type="button">Kirjaudu ulos</button> </a>';
-                        } else {
-                            echo '<a href="php/yllapito.php"><button type="button">Kirjaudu sisään</button> </a>';
-                        }
-                        ?>
-                    </ul>
-                </nav>
-            </div>
-            <div class="col-md-6 h-100">
-
-                <h1>UUSIMMAT</h1>
-                <?php uutiset($yhteys, "kaikki");?>
-                <h1 id="uutiset">UUTISET</h1>
-                <?php uutiset($yhteys, "uutiset");?>
-                <h1 id="kotimaa">KOTIMAA</h1>
-                <?php uutiset($yhteys, "kotimaa");?>
-                <h1 id="ulkomaat">ULKOMAAT</h1>
-                <?php uutiset($yhteys, "ulkomaat");?>
-                <h1 id="politiikka">POLITIIKKA</h1>
-                <?php uutiset($yhteys, "politiikka");?>
-                <h1 id="talous">TALOUS</h1>
-                <?php uutiset($yhteys, "talous");?>
-                <h1 id="urheilu">URHEILU</h1>
-                <?php uutiset($yhteys, "urheilu");?>
-                <h1 id="viihde">VIIHDE</h1>
-                <?php uutiset($yhteys, "viihde");?>
-                <h1 id="terveys">TERVEYS</h1>
-                <?php uutiset($yhteys, "terveys");?>
-
-                <!-- <div class="media" id="<?php //echo hae_uutinen(2)->id;?>" onclick="location.href='php/uutinen.php?id=' + this.id">
-                    <img class="mr-3" src="<?php //echo hae_uutinen(2)->kuvapolku?>" height="300px" width="450px">
-                    <div class="media-body">
-                        <h5 class="mt-0"><?php //echo hae_uutinen(2)->otsikko?></h5>
-                        <p><?php //echo get_words(hae_uutinen(2)->artikkeli);?></p>
-                    </div>
+                <div class="md-form mt-0">
+                    <form class="form-inline" action="haku.php" method="POST">
+                        <input class="form-control" type="text" name="hakusana">
+                        <input class="btn btn-secondary ml-sm-2" type="submit" value="Haku">
+                    </form>         
                 </div>
+                <?php 
+                    if ( isset( $_SESSION['user_id'] ) ) {
+                        echo '<a class="btn btn-secondary btn-sm mb-3" href="uusi.html">Lisää artikkeli</a>';
+                        echo '<a class="btn btn-secondary btn-sm" href="php/logout.php">Kirjaudu ulos</a>';
+                    } else {
+                        echo '<a class="btn btn-secondary btn-sm" href="php/yllapito.php">Kirjaudu sisään</a>';
+                    }
+                ?>
+            </ul>
 
-                <div class="row mt-3">
+        </nav>
 
-                </div>
+    </div>
 
-                <div class="media">
-                    <img class="mr-3" src="https://files.luolasto.org/20585/tiedosto.jpg" height="300px" width="450px">
-                    <div class="media-body">
-                        <h5 class="mt-0">Uutisotsikko</h5> Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
-                    </div>
-                </div> -->
-
+    <div class="col-lg-6">
+        <div class="container-fluid row">
+            <div class="col mx-auto"></div>
+            <div class="col-lg-10"> 
+                <h1>Uusimmat</h1>
+                    <?php uutiset($yhteys, "kaikki");?>
+                <h1 id="uutiset">Uutiset</h1>
+                    <?php uutiset($yhteys, "uutiset");?>
+                <h1 id="kotimaa">Kotimaa</h1>
+                    <?php uutiset($yhteys, "kotimaa");?>
+                <h1 id="ulkomaat">Ulkomaat</h1>
+                    <?php uutiset($yhteys, "ulkomaat");?>
+                <h1 id="politiikka">Politiikka</h1>
+                    <?php uutiset($yhteys, "politiikka");?>
+                <h1 id="talous">Talous</h1>
+                    <?php uutiset($yhteys, "talous");?>
+                <h1 id="urheilu">Urheilu</h1>
+                    <?php uutiset($yhteys, "urheilu");?>
+                <h1 id="viihde">Viihde</h1>
+                    <?php uutiset($yhteys, "viihde");?>
+                <h1 id="terveys">Terveys</h1>
+                    <?php uutiset($yhteys, "terveys");?>
             </div>
             <div class="col mx-auto"></div>
         </div>
     </div>
 
-    <script src="js/jquery-3.4.1.slim.min.js"></script>
-    <script src="js/bootstrap.bundle.min.js"></script>
-</body>
+    <div class="col mx-auto"></div>
+    
+</div>
 
+</div>
+
+<script src="js/jquery-3.4.1.slim.min.js"></script>
+<script src="js/bootstrap.bundle.min.js"></script>
+
+</body>
 </html>

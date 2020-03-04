@@ -9,41 +9,78 @@
     <link rel="stylesheet" href="css/tyyli.css">
 </head>
 
-<body style="height:100vh">
-
-    <div class="container-fluid h-100">
-        <div class="row h-100">
+<body>
+    <div class="container-fluid">
+        <div class="row">
             <div class="col mx-auto"></div>
-            <div class="col-md-6 bg-primary h-100">
-                <form action="php/lisaa.php?e=0" method="POST" enctype="multipart/form-data">
-                    <input type="number" name="id" readonly style="display: none">
-                    <br>Otsikko:<br>
-                    <input type="text" name="otsikko">
-                    <br>Kirjoittaja:<br>
-                    <input type="text" name="kirjoittaja">
-                    <br>Artikkeli:<br>
-                    <textarea name="artikkeli"></textarea>
-                    <br>Valitse aiheet:<br>
-                    <ul>
-                        <li><input type="checkbox" name="uutiset"> Uutiset</li>
-                        <li><input type="checkbox" name="kotimaa"> Kotimaa</li>
-                        <li><input type="checkbox" name="ulkomaat"> Ulkomaat</li>
-                        <li><input type="checkbox" name="politiikka"> Politiikka</li>
-                        <li><input type="checkbox" name="talous"> Talous</li>
-                        <li><input type="checkbox" name="urheilu"> Urheilu</li>
-                        <li><input type="checkbox" name="viihde"> Viihde</li>
-                        <li><input type="checkbox" name="terveys"> Terveys</li>
-                    </ul>
-                    Avainsanat (5):<br>
-                    <input type="text" name="avainsanat">
-                    <br>Kuvateksti:<br>
-                    <input type="text" name="kuvateksti">
-                    <br>Lisää kuva:<br>
-                    <input type="file" name="fileToUpload" id="fileToUpload">
-                    <input type="text" name="kuvapolku" readonly style="display: none">
-                    <br><br>
-                    <input type="submit" name="laheta" value="Lähetä">
-                </form>
+            <div class="col-lg-3" style="min-width: 600px">
+                <h1>Lisää artikkeli</h1>
+                <div class="form-group">
+                    <form action="php/lisaa.php?e=0" method="POST" enctype="multipart/form-data">
+                        <input type="number" name="id" readonly style="display: none">
+
+                        <label for="otsikko">Otsikko</label>
+                        <input class="form-control" id="otsikko" type="text" name="otsikko">
+
+                        <label for="kirjoittaja">Kirjoittaja</label>
+                        <input class="form-control" id="kirjoittaja" type="text" name="kirjoittaja">
+
+                        <label for="artikkeli">Artikkeli</label>
+                        <textarea class="form-control" id="artikkeli" type="text" name="artikkeli" rows="7"></textarea>
+
+                        <label for="aiheet">Valitse aiheet</label>
+                        <div class="form-group ml-5" id="aiheet">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="" id="uutiset" name="uutiset">
+                                <label class="form-check-label" for="uutiset">Uutiset</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="" id="kotimaa" name="kotimaa">
+                                <label class="form-check-label" for="kotimaa">Kotimaa</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="" id="ulkomaat" name="ulkomaat">
+                                <label class="form-check-label" for="ulkomaat">Ulkomaat</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="" id="politiikka"
+                                    name="politiikka">
+                                <label class="form-check-label" for="politiikka">Politiikka</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="" id="talous" name="talous">
+                                <label class="form-check-label" for="talous">Talous</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="" id="urheilu" name="urheilu">
+                                <label class="form-check-label" for="urheilu">Urheilu</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="" id="viihde" name="viihde">
+                                <label class="form-check-label" for="viihde">Viihde</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="" id="terveys" name="terveys">
+                                <label class="form-check-label" for="terveys">Terveys</label>
+                            </div>
+                        </div>
+
+                        <label for="avainsanat">Avainsanat (5)</label>
+                        <input class="form-control" id="avainsanat" type="text" name="avainsanat">
+
+                        <label for="kuvateksti">Kuvateksti</label>
+                        <input class="form-control" id="kuvateksti" type="text" name="kuvateksti">
+
+                        <div class="custom-file mt-3" id="liskuva">
+                            <input type="file" class="custom-file-input" name="fileToUpload" id="fileToUpload">
+                            <label class="custom-file-label" for="fileToUpload">Valitse kuva</label>
+                        </div>
+
+                        <input type="text" name="kuvapolku" readonly style="display: none">
+                        <button type="submit" class="btn btn-primary mt-4">Lähetä</button>
+                    </form>
+                </div>
+
             </div>
             <div class="col mx-auto"></div>
         </div>

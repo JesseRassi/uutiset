@@ -120,6 +120,7 @@ $uutinen_wrap->appendChild($uutinen_kuva);
 $uutinen->appendChild($uutinen_wrap);
 $uutinen->save("../xml/{$id}.xml");
 
+header("Location: ../feed.php");
 /*
 $uutisfeed = new DOMDocument("1.0", "utf-8");
 $uutisfeed->load("../xml/uutisfeed.xml");

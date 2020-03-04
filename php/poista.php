@@ -21,12 +21,20 @@ mysqli_stmt_execute($stmt);
 mysqli_stmt_close($stmt);
 mysqli_close($yhteys);
 // xml tiedoston poisto   
-$file_pointer = "../xml/{$id}.xml";   
+$file_pointer = "../xml/{$id}.xml";
+$kuva = simplexml_load_file($file_pointer)->kuvapolku;
 if (!unlink($file_pointer)) {  
     echo ("$file_pointer error");  
 }  
 else {  
     echo ("$file_pointer on poistettu");  
 }  
+if (!unlink($kuva)) {  
+    echo ("$kuva error");  
+}  
+else {  
+    echo ("$kuva on poistettu");  
+}  
   
+header("Location: ../feed.php");
 ?> 
