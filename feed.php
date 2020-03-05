@@ -104,7 +104,8 @@ function uutiset($yhteys, $tyyppi){
                 </div>
                 <?php 
                     if ( isset( $_SESSION['user_id'] ) ) {
-                        echo '<a class="btn btn-secondary btn-sm mb-3" href="uusi.php">Lisää artikkeli</a>';
+                        echo '<a class="btn btn-secondary btn-sm mb-2" href="uusi.php">Lisää artikkeli</a>';
+                        echo '<a class="btn btn-secondary btn-sm mb-2" href="php/lisaa_kayttaja.php">Lisää käyttäjä</a>';
                         echo '<a class="btn btn-secondary btn-sm" href="php/logout.php">Kirjaudu ulos</a>';
                     } else {
                         echo '<a class="btn btn-secondary btn-sm" href="php/yllapito.php">Kirjaudu sisään</a>';

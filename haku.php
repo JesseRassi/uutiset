@@ -20,6 +20,7 @@ function get_words($sentence, $count = 15) {
 }
 
 function uutiset($yhteys, $hakusana){
+    // ei turvallinen, sql-injektio riski
     $sql = "SELECT id, pvm FROM uutiset WHERE '{$hakusana}' IN(avainsana0, avainsana1, avainsana2, avainsana3, avainsana4) ORDER BY pvm DESC";
     $result = $yhteys->query($sql);
     if($result->num_rows == 0){
@@ -104,7 +105,8 @@ function uutiset($yhteys, $hakusana){
                 </div>
                 <?php 
                     if ( isset( $_SESSION['user_id'] ) ) {
-                        echo '<a class="btn btn-secondary btn-sm mb-3" href="uusi.php">Lisää artikkeli</a>';
+                        echo '<a class="btn btn-secondary btn-sm mb-2" href="uusi.php">Lisää artikkeli</a>';
+                        echo '<a class="btn btn-secondary btn-sm mb-2" href="php/lisaa_kayttaja.php">Lisää käyttäjä</a>';
                         echo '<a class="btn btn-secondary btn-sm" href="php/logout.php">Kirjaudu ulos</a>';
                     } else {
                         echo '<a class="btn btn-secondary btn-sm" href="php/yllapito.php">Kirjaudu sisään</a>';

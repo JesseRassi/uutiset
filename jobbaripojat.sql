@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 05, 2020 at 07:46 AM
+-- Generation Time: Mar 05, 2020 at 09:47 AM
 -- Server version: 10.4.11-MariaDB
 -- PHP Version: 7.4.1
 
@@ -52,10 +52,7 @@ CREATE TABLE `uutiset` (
 
 INSERT INTO `uutiset` (`id`, `pvm`, `avainsana0`, `avainsana1`, `avainsana2`, `avainsana3`, `avainsana4`, `uutiset`, `kotimaa`, `ulkomaat`, `politiikka`, `talous`, `urheilu`, `viihde`, `terveys`) VALUES
 (2, '2020-02-29 04:02:36', 'sd', 'sdf', 'dsf', 'vx', 'df', 1, 0, 0, 0, 0, 0, 1, 1),
-(3, '2020-02-29 04:04:22', 'sd', 'sdf', 'dsf', 'c', 'df', 1, 0, 0, 0, 0, 0, 1, 1),
-(4, '2020-03-01 03:06:51', 'c', 'b', 'a', 'd', 'e', 0, 0, 0, 1, 0, 1, 0, 0),
 (5, '2020-03-01 04:48:53', 'a', 'b', 'c', 'd', 'e', 0, 0, 0, 0, 0, 1, 0, 0),
-(6, '2020-03-05 06:41:30', 'a', 'c', 'b', 'd', 'e', 0, 0, 0, 0, 0, 1, 0, 0),
 (7, '2020-03-05 07:42:47', 'dkjf', 'kljsfic', 'ijsvijd', 'jsdfj', 'c', 0, 1, 1, 1, 1, 1, 1, 1);
 
 -- --------------------------------------------------------
@@ -75,7 +72,8 @@ CREATE TABLE `yllapito` (
 --
 
 INSERT INTO `yllapito` (`id`, `kayttaja`, `salasana`) VALUES
-(1, 'admin', ' ');
+(5, 'admin', '$2y$10$DJ3RC9lfP76bnJF21zdsHOgnldyJmszJhbJhgAXWXmEr2yXLwT0jG'),
+(6, 'testi', '$2y$10$DJg0i0C1UDuk5JoKZIiesu5kyUdhJzxU.bkBs7kgzGTqZBUcvyJA2');
 
 --
 -- Indexes for dumped tables
@@ -101,7 +99,7 @@ ALTER TABLE `yllapito`
 -- AUTO_INCREMENT for table `yllapito`
 --
 ALTER TABLE `yllapito`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

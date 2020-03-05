@@ -15,7 +15,7 @@ if ( ! empty( $_POST ) ) {
         $user = $result->fetch_object();
         echo var_dump($user);
     	// Verify user password and set $_SESSION
-    	if ( $_POST['password'] == $user->salasana ) {
+    	if ( password_verify($_POST['password'], $user->salasana) ) {
     		$_SESSION['user_id'] = $user->id;
     	} else{
             echo "Error";

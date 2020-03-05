@@ -1,9 +1,3 @@
-<?php
-session_start();
-if (isset( $_SESSION['user_id']) ) {
-    header("Location: yllapito.php");
-}
-?>
 <html lang="en" style="overflow-y: scroll;">
 
 <head>
