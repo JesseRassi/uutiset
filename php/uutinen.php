@@ -25,7 +25,8 @@ function varoitus_viesti($message){
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?php echo $xml->otsikko;?></title>
-<link rel="stylesheet" href="../css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/tyyli.css">
 </head>
 
 <body>
@@ -36,33 +37,33 @@ function varoitus_viesti($message){
 
     <div class="col mx-auto">
 
-        <nav class="navbar bg-light float-right">
+        <nav class="navbar float-right sticky-top">
 
             <ul class="navbar-nav">
 
-                <li class="nav-item">
-                    <a class="nav-link mt-1 btn btn-primary" href="../feed.php">Koti</a>
+                <li class="nav-item mb-2">
+                    <a href="../feed.php"><img class="mx-auto d-block" src="../iltajobbari.png"/></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link mt-1 btn btn-primary" href="../feed.php#kotimaa">Kotimaa</a>
+                    <a class="nav-link mt-1 btn btn-outline-danger" href="../feed.php#kotimaa">Kotimaa</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link mt-1 btn btn-primary" href="../feed.php#ulkomaat">Ulkomaat</a>                            
+                    <a class="nav-link mt-1 btn btn-outline-danger" href="../feed.php#ulkomaat">Ulkomaat</a>                            
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link mt-1 btn btn-primary" href="../feed.php#politiikka">Politiikka</a>                            
+                    <a class="nav-link mt-1 btn btn-outline-danger" href="../feed.php#politiikka">Politiikka</a>                            
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link mt-1 btn btn-primary" href="../feed.php#talous">Talous</a>                            
+                    <a class="nav-link mt-1 btn btn-outline-danger" href="../feed.php#talous">Talous</a>                            
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link mt-1 btn btn-primary" href="../feed.php#urheilu">Urheilu</a>                            
+                    <a class="nav-link mt-1 btn btn-outline-danger" href="../feed.php#urheilu">Urheilu</a>                            
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link mt-1 btn btn-primary" href="../feed.php#viihde">Viihde</a>                            
+                    <a class="nav-link mt-1 btn btn-outline-danger" href="../feed.php#viihde">Viihde</a>                            
                 </li>
                 <li class="nav-item mb-3">
-                    <a class="nav-link mt-1 btn btn-primary" href="../feed.php#terveys">Terveys</a>                            
+                    <a class="nav-link mt-1 btn btn-outline-danger" href="../feed.php#terveys">Terveys</a>                            
                 </li>                  
 
                 <div class="md-form mt-0">
@@ -88,8 +89,8 @@ function varoitus_viesti($message){
     <div class="col-lg-6">
         <div class="container-fluid row">
             <div class="col mx-auto"></div>
-            <div class="col-lg-10"> 
-                <h1><?php echo $xml->otsikko;?></h1><br>
+            <div class="col-lg-10 bg-light min-vh-100"> 
+                <h1 class="mt-5"><?php echo $xml->otsikko;?></h1><br>
                 <span>Kirjoittanut: <?php echo $xml->kirjoittaja;?></span><span style="float: right;">
                 <?php
                 echo "Lisätty: " . date("M jS, Y", strtotime($row['pvm']));

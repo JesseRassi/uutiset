@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 03, 2020 at 01:17 PM
+-- Generation Time: Mar 05, 2020 at 07:46 AM
 -- Server version: 10.4.11-MariaDB
 -- PHP Version: 7.4.1
 
@@ -55,8 +55,27 @@ INSERT INTO `uutiset` (`id`, `pvm`, `avainsana0`, `avainsana1`, `avainsana2`, `a
 (3, '2020-02-29 04:04:22', 'sd', 'sdf', 'dsf', 'c', 'df', 1, 0, 0, 0, 0, 0, 1, 1),
 (4, '2020-03-01 03:06:51', 'c', 'b', 'a', 'd', 'e', 0, 0, 0, 1, 0, 1, 0, 0),
 (5, '2020-03-01 04:48:53', 'a', 'b', 'c', 'd', 'e', 0, 0, 0, 0, 0, 1, 0, 0),
-(6, '2020-03-01 04:49:29', 'a', 'c', 'b', 'd', 'e', 0, 0, 0, 0, 0, 1, 0, 0),
-(7, '2020-03-01 07:10:45', 'dkjf', 'kljsfic', 'ijsvijd', 'jsdfj', 'c', 0, 1, 1, 0, 1, 0, 0, 1);
+(6, '2020-03-05 06:41:30', 'a', 'c', 'b', 'd', 'e', 0, 0, 0, 0, 0, 1, 0, 0),
+(7, '2020-03-05 07:42:47', 'dkjf', 'kljsfic', 'ijsvijd', 'jsdfj', 'c', 0, 1, 1, 1, 1, 1, 1, 1);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `yllapito`
+--
+
+CREATE TABLE `yllapito` (
+  `id` int(11) NOT NULL,
+  `kayttaja` varchar(20) NOT NULL,
+  `salasana` varchar(256) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `yllapito`
+--
+
+INSERT INTO `yllapito` (`id`, `kayttaja`, `salasana`) VALUES
+(1, 'admin', ' ');
 
 --
 -- Indexes for dumped tables
@@ -67,6 +86,22 @@ INSERT INTO `uutiset` (`id`, `pvm`, `avainsana0`, `avainsana1`, `avainsana2`, `a
 --
 ALTER TABLE `uutiset`
   ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `yllapito`
+--
+ALTER TABLE `yllapito`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `yllapito`
+--
+ALTER TABLE `yllapito`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

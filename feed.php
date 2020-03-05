@@ -67,33 +67,33 @@ function uutiset($yhteys, $tyyppi){
 
     <div class="col mx-auto">
 
-        <nav class="navbar bg-light float-right">
+        <nav class="navbar float-right sticky-top">
 
             <ul class="navbar-nav">
 
-                <li class="nav-item">
-                    <a class="nav-link mt-1 btn btn-primary" href="feed.php">Koti</a>
+                <li class="nav-item mb-2">
+                    <a href="feed.php"><img class="mx-auto d-block" src="iltajobbari.png"/></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link mt-1 btn btn-primary" href="feed.php#kotimaa">Kotimaa</a>
+                    <a class="nav-link mt-1 btn btn-outline-danger" href="feed.php#kotimaa">Kotimaa</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link mt-1 btn btn-primary" href="feed.php#ulkomaat">Ulkomaat</a>                            
+                    <a class="nav-link mt-1 btn btn-outline-danger" href="feed.php#ulkomaat">Ulkomaat</a>                            
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link mt-1 btn btn-primary" href="feed.php#politiikka">Politiikka</a>                            
+                    <a class="nav-link mt-1 btn btn-outline-danger" href="feed.php#politiikka">Politiikka</a>                            
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link mt-1 btn btn-primary" href="feed.php#talous">Talous</a>                            
+                    <a class="nav-link mt-1 btn btn-outline-danger" href="feed.php#talous">Talous</a>                            
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link mt-1 btn btn-primary" href="feed.php#urheilu">Urheilu</a>                            
+                    <a class="nav-link mt-1 btn btn-outline-danger" href="feed.php#urheilu">Urheilu</a>                            
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link mt-1 btn btn-primary" href="feed.php#viihde">Viihde</a>                            
+                    <a class="nav-link mt-1 btn btn-outline-danger" href="feed.php#viihde">Viihde</a>                            
                 </li>
                 <li class="nav-item mb-3">
-                    <a class="nav-link mt-1 btn btn-primary" href="feed.php#terveys">Terveys</a>                            
+                    <a class="nav-link mt-1 btn btn-outline-danger" href="feed.php#terveys">Terveys</a>                            
                 </li>                  
 
                 <div class="md-form mt-0">
@@ -119,24 +119,22 @@ function uutiset($yhteys, $tyyppi){
     <div class="col-lg-6">
         <div class="container-fluid row">
             <div class="col mx-auto"></div>
-            <div class="col-lg-10"> 
-                <h1>Uusimmat</h1>
+            <div class="col-lg-10 bg-light"> 
+                <h1 class="mt-5 mb-3 display-4">Uusimmat</h1>
                     <?php uutiset($yhteys, "kaikki");?>
-                <h1 id="uutiset">Uutiset</h1>
-                    <?php uutiset($yhteys, "uutiset");?>
-                <h1 id="kotimaa">Kotimaa</h1>
+                <h1 class="mt-5 mb-3 display-4" id="kotimaa">Kotimaa</h1>
                     <?php uutiset($yhteys, "kotimaa");?>
-                <h1 id="ulkomaat">Ulkomaat</h1>
+                <h1 class="mt-5 mb-3 display-4" id="ulkomaat">Ulkomaat</h1>
                     <?php uutiset($yhteys, "ulkomaat");?>
-                <h1 id="politiikka">Politiikka</h1>
+                <h1 class="mt-5 mb-3 display-4" id="politiikka">Politiikka</h1>
                     <?php uutiset($yhteys, "politiikka");?>
-                <h1 id="talous">Talous</h1>
+                <h1 class="mt-5 mb-3 display-4" id="talous">Talous</h1>
                     <?php uutiset($yhteys, "talous");?>
-                <h1 id="urheilu">Urheilu</h1>
+                <h1 class="mt-5 mb-3 display-4" id="urheilu">Urheilu</h1>
                     <?php uutiset($yhteys, "urheilu");?>
-                <h1 id="viihde">Viihde</h1>
+                <h1 class="mt-5 mb-3 display-4" id="viihde">Viihde</h1>
                     <?php uutiset($yhteys, "viihde");?>
-                <h1 id="terveys">Terveys</h1>
+                <h1 class="mt-5 mb-3 display-4" id="terveys">Terveys</h1>
                     <?php uutiset($yhteys, "terveys");?>
             </div>
             <div class="col mx-auto"></div>
