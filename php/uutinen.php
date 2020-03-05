@@ -73,7 +73,7 @@ $row = mysqli_fetch_assoc($result);
                     if ( isset( $_SESSION['user_id'] ) ) {
                         echo '<a class="btn btn-secondary btn-sm mb-2" href="../uusi.php">Lisää artikkeli</a>';
                         if ($_SESSION['user_id'] == 5){
-                            echo '<a class="btn btn-secondary btn-sm mb-2" href="lisaa_kayttaja.php">Lisää käyttäjä</a>';
+                            echo '<a class="btn btn-secondary btn-sm mb-2" href="uusi_kayttaja.php">Lisää käyttäjä</a>';
                         }
                         echo '<a class="btn btn-secondary btn-sm" href="logout.php">Kirjaudu ulos</a>';
                     } else {

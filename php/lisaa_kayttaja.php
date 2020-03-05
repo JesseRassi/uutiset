@@ -1,8 +1,6 @@
 <?php
 session_start();
-if (!isset( $_SESSION['user_id']) ) {
-    header("Location: yllapito.php");
-} else {
+if ($_SESSION['user_id'] != 5 ) {
     $servername = "localhost";
     $username = "root";
     $password = "";
@@ -20,6 +18,8 @@ if (!isset( $_SESSION['user_id']) ) {
             mysqli_close($yhteys);
         }
     }
-header("Location: logout.php");
+    header("Location: logout.php");
+} else {
+    header("Location: yllapito.php");
 }
 ?>
