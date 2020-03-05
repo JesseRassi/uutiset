@@ -104,7 +104,7 @@ function uutiset($yhteys, $hakusana){
                 </div>
                 <?php 
                     if ( isset( $_SESSION['user_id'] ) ) {
-                        echo '<a class="btn btn-secondary btn-sm mb-3" href="uusi.html">Lisää artikkeli</a>';
+                        echo '<a class="btn btn-secondary btn-sm mb-3" href="uusi.php">Lisää artikkeli</a>';
                         echo '<a class="btn btn-secondary btn-sm" href="php/logout.php">Kirjaudu ulos</a>';
                     } else {
                         echo '<a class="btn btn-secondary btn-sm" href="php/yllapito.php">Kirjaudu sisään</a>';

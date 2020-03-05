@@ -15,9 +15,6 @@ $sql = "SELECT pvm FROM uutiset WHERE id = {$id} LIMIT 1";
 $result = $yhteys->query($sql);
 $row = mysqli_fetch_assoc($result);
 
-function varoitus_viesti($message){
-    echo "<script type='text/javascript'>alert({$message});</script>";
-}
 ?>
 <html lang="en" style="overflow-y: scroll;">
 
@@ -74,7 +71,7 @@ function varoitus_viesti($message){
                 </div>
                 <?php 
                     if ( isset( $_SESSION['user_id'] ) ) {
-                        echo '<a class="btn btn-secondary btn-sm mb-3" href="../uusi.html">Lisää artikkeli</a>';
+                        echo '<a class="btn btn-secondary btn-sm mb-3" href="../uusi.php">Lisää artikkeli</a>';
                         echo '<a class="btn btn-secondary btn-sm" href="logout.php">Kirjaudu ulos</a>';
                     } else {
                         echo '<a class="btn btn-secondary btn-sm" href="yllapito.php">Kirjaudu sisään</a>';

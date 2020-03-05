@@ -1,31 +1,36 @@
 <?php
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "jobbaripojat";
-$yhteys = new mysqli($servername, $username, $password, $dbname);
+session_start();
+if (!isset( $_SESSION['user_id']) ) {
+    header("Location: ../php/yllapito.php");
+} else {
+    $servername = "localhost";
+    $username = "root";
+    $password = "";
+    $dbname = "jobbaripojat";
+    $yhteys = new mysqli($servername, $username, $password, $dbname);
+    
+    $id = $_GET['uid'];
+    
+    $sql = "SELECT * FROM uutiset WHERE id = ?";
+    $stmt = mysqli_prepare($yhteys, $sql);
+    mysqli_stmt_bind_param($stmt, "i", $id);
+    mysqli_stmt_execute($stmt);
+    $row = mysqli_fetch_object(mysqli_stmt_get_result($stmt));
+    mysqli_stmt_close($stmt);
+    
+    $avainsanat = $row->avainsana0 . " " . $row->avainsana1 . " " . $row->avainsana2 . " " . $row->avainsana3 . " " . $row->avainsana4;
+    $check_uutiset = $row->uutiset;
+    $check_kotimaa = $row->kotimaa;
+    $check_ulkomaat = $row->ulkomaat;
+    $check_politiikka = $row->politiikka;
+    $check_talous = $row->talous;
+    $check_urheilu = $row->urheilu;
+    $check_viihde = $row->viihde;
+    $check_terveys = $row->terveys;
 
-$id = $_GET['uid'];
-
-$sql = "SELECT * FROM uutiset WHERE id = ?";
-$stmt = mysqli_prepare($yhteys, $sql);
-mysqli_stmt_bind_param($stmt, "i", $id);
-mysqli_stmt_execute($stmt);
-$row = mysqli_fetch_object(mysqli_stmt_get_result($stmt));
-mysqli_stmt_close($stmt);
-
-$avainsanat = $row->avainsana0 . " " . $row->avainsana1 . " " . $row->avainsana2 . " " . $row->avainsana3 . " " . $row->avainsana4;
-$check_uutiset = $row->uutiset;
-$check_kotimaa = $row->kotimaa;
-$check_ulkomaat = $row->ulkomaat;
-$check_politiikka = $row->politiikka;
-$check_talous = $row->talous;
-$check_urheilu = $row->urheilu;
-$check_viihde = $row->viihde;
-$check_terveys = $row->terveys;
-
-$file = "../xml/{$id}.xml";
-$xml = simplexml_load_file($file);
+    $file = "../xml/{$id}.xml";
+    $xml = simplexml_load_file($file);
+}
 ?>
 <html lang="en">
 

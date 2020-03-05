@@ -1,5 +1,9 @@
 <?php
 session_start();
-unset($_SESSION["user_id"]);
-header("Location: ../feed.php");
+if (!isset( $_SESSION['user_id']) ) {
+    header("Location: yllapito.php");
+} else {
+    unset($_SESSION["user_id"]);
+    header("Location: ../feed.php");
+}
 ?>

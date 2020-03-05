@@ -1,4 +1,9 @@
-<html lang="en">
+<?php
+session_start();
+if (!isset( $_SESSION['user_id']) ) {
+    header("Location: yllapito.php");
+}
+?><html lang="en">
 
 <head>
     <meta charset="UTF-8">
