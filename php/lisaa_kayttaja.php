@@ -1,10 +1,7 @@
 <?php
 session_start();
 if ($_SESSION['user_id'] != 5 ) {
-    $servername = "localhost";
-    $username = "root";
-    $password = "";
-    $dbname = "jobbaripojat";
+    require '../db_config.php';
     $yhteys = new mysqli($servername, $username, $password, $dbname);
     if ( ! empty( $_POST ) ) {
         if ( isset( $_POST['username'] ) && isset( $_POST['password'] ) ) {

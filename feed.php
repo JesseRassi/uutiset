@@ -1,10 +1,7 @@
 <?php
 session_start();
 
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "jobbaripojat";
+require 'db_config.php';
 $yhteys = new mysqli($servername, $username, $password, $dbname);
 
 function hae_uutinen($id){

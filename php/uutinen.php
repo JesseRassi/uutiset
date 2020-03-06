@@ -5,10 +5,7 @@ $id = $_GET["id"];
 $file = "../xml/{$id}.xml";
 $xml = simplexml_load_file($file);
 
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "jobbaripojat";
+require '../db_config.php';
 $yhteys = new mysqli($servername, $username, $password, $dbname);
 
 $sql = "SELECT pvm FROM uutiset WHERE id = {$id} LIMIT 1";
