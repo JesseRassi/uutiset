@@ -3,13 +3,7 @@ session_start();
 if (!isset( $_SESSION['user_id']) ) {
     header("Location: yllapito.php");
 } else {
-    $servername = "localhost";
-    $username = "root";
-    $password = "";
-    $dbname = "jobbaripojat";
-    
-    // tarkista yhteys
-    $yhteys = new mysqli($servername, $username, $password, $dbname);
+    require '../db_config.php';
     // tarkista yhteys
     if ($yhteys->connect_error) {
         die("Connection failed: " . $yhtyes->connect_error);

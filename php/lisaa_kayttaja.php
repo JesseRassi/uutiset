@@ -1,8 +1,7 @@
 <?php
 session_start();
-if ($_SESSION['user_id'] != 5 ) {
-    require '../db_config.php';
-    $yhteys = new mysqli($servername, $username, $password, $dbname);
+require '../db_config.php';
+if ($_SESSION['user_id'] == 5 ) {
     if ( ! empty( $_POST ) ) {
         if ( isset( $_POST['username'] ) && isset( $_POST['password'] ) ) {
             $tunnus = $_POST['username'];

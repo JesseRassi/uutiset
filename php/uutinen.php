@@ -6,7 +6,6 @@ $file = "../xml/{$id}.xml";
 $xml = simplexml_load_file($file);
 
 require '../db_config.php';
-$yhteys = new mysqli($servername, $username, $password, $dbname);
 
 $sql = "SELECT pvm FROM uutiset WHERE id = {$id} LIMIT 1";
 $result = $yhteys->query($sql);

@@ -3,11 +3,7 @@ session_start();
 if (!isset( $_SESSION['user_id']) ) {
     header("Location: ../php/yllapito.php");
 } else {
-    $servername = "localhost";
-    $username = "root";
-    $password = "";
-    $dbname = "jobbaripojat";
-    $yhteys = new mysqli($servername, $username, $password, $dbname);
+    require '../db_config.php';
     
     $id = $_GET['uid'];
     

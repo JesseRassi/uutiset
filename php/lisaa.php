@@ -3,11 +3,7 @@ session_start();
 if (!isset( $_SESSION['user_id']) ) {
     header("Location: yllapito.php");
 } else {
-    $servername = "localhost";
-    $username = "root";
-    $password = "";
-    $dbname = "jobbaripojat";
-    $yhteys = new mysqli($servername, $username, $password, $dbname);
+    require '../db_config.php';
     
     $muokkaus = (bool)$_GET["e"];
     echo var_dump($muokkaus);
@@ -146,19 +142,19 @@ if (!isset( $_SESSION['user_id']) ) {
     $uutisfeed->save("../xml/uutisfeed.xml");
     */
     
-    // https://stackoverflow.com/questions/5956610/how-to-select-first-10-words-of-a-sentence
-    function get_words($sentence, $count) {
-        preg_match("/(?:[^\s,\.;\?\!]+(?:[\s,\.;\?\!]+|$)){0,$count}/", $sentence, $matches);
-        return $matches[0];
-    }
-    
-    function hae_id($yhteys){
-        $sql = "SELECT MAX(id) FROM uutiset LIMIT 1";
-        $stmt = mysqli_prepare($yhteys, $sql);
-        mysqli_stmt_execute($stmt);
-        $id = mysqli_fetch_object(mysqli_stmt_get_result($stmt));
-        mysqli_stmt_close($stmt);
-        return reset($id);
-    }
+}
+// https://stackoverflow.com/questions/5956610/how-to-select-first-10-words-of-a-sentence
+function get_words($sentence, $count) {
+    preg_match("/(?:[^\s,\.;\?\!]+(?:[\s,\.;\?\!]+|$)){0,$count}/", $sentence, $matches);
+    return $matches[0];
+}
+
+function hae_id($yhteys){
+    $sql = "SELECT MAX(id) FROM uutiset LIMIT 1";
+    $stmt = mysqli_prepare($yhteys, $sql);
+    mysqli_stmt_execute($stmt);
+    $id = mysqli_fetch_object(mysqli_stmt_get_result($stmt));
+    mysqli_stmt_close($stmt);
+    return reset($id);
 }
 ?>

@@ -2,7 +2,6 @@
 session_start();
 
 require 'db_config.php';
-$yhteys = new mysqli($servername, $username, $password, $dbname);
 
 function hae_uutinen($id){
     $file = "xml/{$id}.xml";

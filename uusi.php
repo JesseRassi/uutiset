@@ -1,7 +1,7 @@
 <?php
 session_start();
 if (!isset( $_SESSION['user_id']) ) {
-    header("Location: yllapito.php");
+    header("Location: ../yllapito.php");
 }
 ?><html lang="en">
 
@@ -90,6 +90,13 @@ if (!isset( $_SESSION['user_id']) ) {
 
     <script src="js/jquery-3.4.1.slim.min.js"></script>
     <script src="js/bootstrap.bundle.min.js"></script>
+    <script type="text/javascript">
+        document.querySelector('.custom-file-input').addEventListener('change',function(e){
+            var fileName = document.getElementById("fileToUpload").files[0].name;
+            var nextSibling = e.target.nextElementSibling
+            nextSibling.innerText = fileName
+        })
+    </script>
 </body>
 
 </html>

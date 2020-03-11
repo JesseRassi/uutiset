@@ -27,7 +27,7 @@ if ($_SESSION['user_id'] != 5) {
             <div class="col-lg-3 align-self-center" style="min-width: 300px"> 
                 <div class="form-group" id="kirjaudu">
                     <label class="h4 mb-3" for="kirjaudu">Lisää käyttäjä</label>
-                    <form action="uusi.php" method="post">
+                    <form action="lisaa_kayttaja.php" method="post">
                         <input class="form-control" id="username" type="text" name="username" placeholder="Käyttäjänimi" required>
 
                         <input class="form-control mt-2" id="password" type="password" name="password" placeholder="Salasana" required>
